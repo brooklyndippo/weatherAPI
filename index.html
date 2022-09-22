@@ -91,11 +91,19 @@
       formEl.addEventListener('submit', (e) => {
         e.preventDefault()
         const zip = zipInput.value
-        getWeather(zip)
+        getWeather(apiKey, zip, updateWeather)
+
+        function updateWeather(json) {
+          tempEl.innerHTML = json.main.temp
+          descEl.innerHTML = json.weather[0].description
+        }
       })
 
       // Functions 
-      getWeather(apiKey, zip)
+
+
+
+      
            
     </script>
   </body>
