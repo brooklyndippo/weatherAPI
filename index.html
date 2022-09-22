@@ -56,9 +56,12 @@
   </head>
   <body>
     <div class="container">
-      <h1 id="temp">
-        <!--Temp -->
+      <h1 id="city">
+      <!--Location -->
       </h1>
+      <h2 id="temp">
+        <!--Temp -->
+      </h2>
       <p id="desc">
         <!-- description -->
       </p>
@@ -82,6 +85,7 @@
       // Get Element refererences
       const tempEl = document.getElementById('temp')
       const descEl = document.getElementById('desc')
+      const cityEl = document.getElementById('city')
       const formEl = document.getElementById('form')
       const zipInput = document.getElementById('zip')
 
@@ -92,8 +96,9 @@
         e.preventDefault()
         const zip = zipInput.value
         getWeather(apiKey, zip).then((json) => {
-          tempEl.innerHTML = json.main.temp
-          descEl.innerHTML = json.weather[0].description
+          tempEl.innerHTML = json.temp
+          descEl.innerHTML = json.weather
+          cityEl.innerHTML = `Current weather in ${json.name}`
         })
       })
 

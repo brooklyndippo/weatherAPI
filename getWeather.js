@@ -4,7 +4,13 @@ async function getWeather(apiKey, zip) {
     try {
         const res = await fetch(path)
         const json = await res.json()
-        return json 
+        console.log(json)
+        return {
+            name: json.name,
+            temp: json.main.temp,
+            feels_like: json.main.feels_like,
+            weather: json.weather[0].description
+        } 
     } catch(error) {
         console.log(error.message)
     }
