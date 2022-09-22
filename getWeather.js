@@ -1,5 +1,5 @@
-async function getWeather(apiKey, zip) {
-    const units = 'imperial'
+async function getWeather(apiKey, zip, units = 'imperial') {
+    console.log (units)
     const path = `https://api.openweathermap.org/data/2.5/weather?zip=${zip}&appid=${apiKey}&units=${units}`
     try {
         const res = await fetch(path)
