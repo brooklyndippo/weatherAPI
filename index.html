@@ -80,7 +80,7 @@
     <script type="module">
       // ------------------------------------------------------
       // Developer Code
-      import { getWeather } from './getWeather.js'
+      import { getWeatherByZip, getWeatehryByCity, getWeatherByGeo } from './getWeather.js'
 
       // Get Element refererences
       const tempEl = document.getElementById('temp')
@@ -95,7 +95,7 @@
       formEl.addEventListener('submit', (e) => {
         e.preventDefault()
         const zip = zipInput.value
-        getWeather(apiKey, zip).then((json) => {
+        getWeatherByZip(apiKey, zip).then((json) => {
           tempEl.innerHTML = json.temp
           descEl.innerHTML = json.weather
           cityEl.innerHTML = `Current weather in ${json.name}`
